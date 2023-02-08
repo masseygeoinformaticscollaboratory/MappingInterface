@@ -6,12 +6,12 @@
 
 .map-container {
     width: 95vw;
-    height: 90vh;
+    height: 85vh;
     --contentHeight: 95vh;
     position: relative;
     overflow: hidden
 }
-
+/*
 .popupContainer {
     position: absolute;
     background-color: white;
@@ -76,3 +76,5 @@
 .bold {
     font-weight: bold;
 }
+
+ */

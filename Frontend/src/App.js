@@ -2,33 +2,20 @@ import './App.css';
 
 import React from "react";
 import Map from "./MapComponents/Map";
-
-
+import Side from "./MapComponents/sideBar"
 function App() {
 
     return (
-        <div className="App">
+        <div id="app">
             <div className="header">
                 <h1>Quake Text</h1>
             </div>
-            <div className="map">
+            <main style={({display: "flex"})}>
+                <Side/>
                 <Map/>
-            </div>
-
+            </main>
         </div>
     );
 }
 
 export default App;
-
-
-//  <div className="map"
-//                  onMouseEnter={() => setIsShown(true)}
-//                  onMouseLeave={() => setIsShown(false)}>
-//                 <Map/>
-//             </div>
-//             {isShown && (
-//                 <div>
-//                     Some stuff appears
-//                 </div>
-//             )}
