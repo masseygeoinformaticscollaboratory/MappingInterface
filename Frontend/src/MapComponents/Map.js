@@ -44,21 +44,21 @@ function MapComponent() {
 
                 let features = map.getFeaturesAtPixel(event.pixel);
 
-
                 if (features && features.length > 0) {
                     //popupRef.current.style.display = "block"
 
                     let text = "";
-                    let {location, coordinates, tweet} = setText()
+                    let {location, coordinates, tweet, impact} = setText()
 
                     for (let i = 0; i < features.length; i++) {
-                        console.log(features[i]);
-                        features[i].get()
-
+                        //features[i].get("placename") for JSON
+                        //features[i].get("instance") for CSV
                         text = text +
-                            location + features[i].get("instance") + "\n" +
+                            location + features[i].get("placename") + "\n" +
                             coordinates + features[i].get("geometry").flatCoordinates + "\n" +
-                            tweet + features[i].get("tweet_text") + "\n \n"
+                            tweet + features[i].get("tweet_text") + "\n" +
+                            impact + features[i].get("impact_type") +
+                            "\n \n"
                     }
                     collapseSidebar();
 
@@ -88,10 +88,3 @@ function MapComponent() {
 }
 
 export default MapComponent;
-
-/*
-<div ref={popupRef} className="popupContainer">
-    <button className="popup-closer" onClick={closePopup}></button>
-    <div ref={popupContentRef} className="popup-content"/>
-</div>
-*/
