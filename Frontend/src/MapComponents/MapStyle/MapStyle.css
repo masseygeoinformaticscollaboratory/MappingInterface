@@ -9,7 +9,13 @@
     height: 85vh;
     --contentHeight: 95vh;
     position: relative;
-    overflow: hidden
+    overflow: hidden;
+    z-index: 1;
+    padding : 20px
+}
+
+#side-bar{
+    z-index: 3;
 }
 /*
 .popupContainer {

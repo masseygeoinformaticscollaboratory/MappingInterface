@@ -5,18 +5,19 @@ import vectorLayer from "./Layers/VectorLayer";
 import view from "./MapStyle/mapView";
 import './MapStyle/MapStyle.css';
 import 'ol/ol.css';
-import {Overlay} from "ol";
-import {setText, formatPopup} from "./MapStyle/PopUpStyle";
-import {Sidebar, Menu, MenuItem, useProSidebar} from "react-pro-sidebar";
+import {setText} from "./MapStyle/PopUpStyle";
+import {useProSidebar} from "react-pro-sidebar";
+import SideBarComponent from "./sideBar";
 
-function MapComponent() {
+function MapComponent(props) {
     const [map, setMap] = useState();
     const mapElement = useRef(null);
     const mapRef = useRef();
     //  const popupRef = useRef(null);
     // const popupContentRef = useRef(null);
     mapRef.current = map;
-    const { collapseSidebar } = useProSidebar();
+
+    const {collapseSidebar} = useProSidebar();
 
 
     useEffect(() => {
@@ -60,11 +61,13 @@ function MapComponent() {
                             impact + features[i].get("impact_type") +
                             "\n \n"
                     }
-                    collapseSidebar();
+
+                    collapseSidebar(false);
 
                     //popup.setPosition(features[0].get("geometry").flatCoordinates);
                     // popupContentRef.current.innerHTML = text;
                     // formatPopup(mapElement, popupRef);
+                    mapElement.current.style.width = '85vw'
 
 
                 }
@@ -80,10 +83,10 @@ function MapComponent() {
     // }
 
     return (
-        <div>
+        <main style={({display: "flex"})}>
+            <SideBarComponent id="side-bar" collapseSidebar={collapseSidebar} mapElement = {mapElement}/>
             <div ref={mapElement} className="map-container"></div>
-
-        </div>
+        </main>
     );
 }
 
