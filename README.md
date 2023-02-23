@@ -10,3 +10,7 @@ This should add the new data to the PostGis Data base, and automatically connect
 ## To Start Frontend:
 1. Ensure TomCat is running and GeoServer can be accessed 
 2. Go to the `Frontend` directory and start the interface with `npm start`
+
+## Branches
+
+SidePopUp - This was the beginning of an alternative view of the information. 
